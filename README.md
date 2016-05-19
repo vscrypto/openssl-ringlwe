@@ -6,6 +6,7 @@ This software is a fork of OpenSSL 1.0.2e which provides Post-Quantum security u
 Two new algorithm identifiers have been defined:
 
 RLWE-RSA-AES128-GCM-SHA256
+
 RLWEP-RSA-AES128-GCM-SHA256
 
 RLWE specifies a power-of-two case ring-LWE key exchange with m=1024 and q=40961, having 256 bits of security and public key size 16384 bits.
@@ -16,14 +17,17 @@ Commands
 --------
 
 To test a single TLS exchange with one of these new algorithm identifiers:
+
 test/ssltest -d -cert apps/server.pem -cipher RLWE-RSA-AES128-GCM-SHA256
 
 Alternatively run a TLS server and client in separate terminal windows:
 
 To run TLS server:
+
 bin/openssl s_server -debug -cipher RLWE-RSA-AES128-GCM-SHA256:RLWEP-RSA-AES128-GCM-SHA256 -cert apps/server.pem
 
 To run  TLS client:
+
 bin/openssl s_client -debug -cipher RLWE-RSA-AES128-GCM-SHA256:RLWEP-RSA-AES128-GCM-SHA256
 
 TODO
@@ -34,13 +38,17 @@ Contributions are invited!
 This software contains work in progress to complete implementation of a hybrid RLWE/ECDHE key exchange using algorithm identifiers:
 
 RLWE-ECDHE-RSA-AES128-GCM-SHA256
+
 RLWEP-ECDHE-RSA-AES128-GCM-SHA256
 
 and to complete implementation of ECDSA versions using algorithm identifiers:
 
 RLWE-ECDSA-AES128-GCM-SHA256
+
 RLWEP-ECDSA-AES128-GCM-SHA256
+
 RLWE-ECDHE-ECDSA-AES128-GCM-SHA256
+
 RLWEP-ECDHE-ECDSA-AES128-GCM-SHA256
 
 Alternative Security Levels
@@ -61,6 +69,7 @@ The RLWE and RLWEP key exchanges have been chosen to map to specific choices of 
 | rlwe_821_49261           | 256 bits   |   13120 bits       |
 
 To test all these sets, run:
+
 test/ringlwetest
 
 Acknowledgements
